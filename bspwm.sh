@@ -82,7 +82,3 @@ mv picom ~/.config/
 # Move whichSystem.py to /usr/local/bin/ and make it executable
 sudo mv whichSystem.py /usr/local/bin/
 sudo chmod +x /usr/local/bin/whichSystem.py
-
-
-sudo systemctl enable lightdm
-
