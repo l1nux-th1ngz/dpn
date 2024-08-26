@@ -5,7 +5,7 @@ sudo apt install -y xorg xserver-xorg xbacklight xbindkeys xvkbd xinput xserver-
 
 # PACKAGE INCLUDES build-essential
 sudo apt install -y build-essential git xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev xdotool autoconf automake
-sudo apt install -y libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev curl wget net-tools  i3lock-fancy tty-clock lsd pamixer g++
+sudo apt install -y libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev curl wget net-tools  i3lock-fancy tty-clock lsd pamixer g++ xinit
 sudo apt install -y cmake cmake-data pkg-config python3-sphinx libcairo2-dev libxcb1-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev 
 sudo apt install -y libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libuv1-dev libnl-genl-3-dev watchman libfreetype6-dev libfontconfig1-dev
 sudo apt install -y meson picom libxext-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-present-dev libpixman-1-dev
@@ -83,35 +83,6 @@ mv picom ~/.config/
 sudo mv whichSystem.py /usr/local/bin/
 sudo chmod +x /usr/local/bin/whichSystem.py
 
-# Install Lightdm Console Display Manager
-sudo apt install -y lightdm lightdm-gtk-greeter-settings slick-greeter
-
-# Configure Lightdm
-sudo tee /etc/lightdm/lightdm.conf <<EOF
-[UserList]
-minimum-uid=500
-hidden-users=nobody nobody4 noaccess
-hidden-shells=/bin/false /usr/sbin/nologin /sbin/nologin
-
-[SeatDefaults]
-user-session=bspwm
-
-[greeter]
-font-name=Ubuntu 11
-xft-antialias=true
-xft-dpi=96
-xft-hintstyle=hintslight
-xft-rgba=rgb
-indicators=~host;~spacer;~clock;~spacer;~session;~a11y;~language;~power
-keyboard=onboard
-reader=orca
-position=50%,center 50%,center
-default-user-image=#avatar-default
-screensaver-timeout=60
-a11y-states=contrast;font;keyboard;reader
-user-background=false
-clock-format=%a %d %b, %H:%M
-EOF
 
 sudo systemctl enable lightdm
 
